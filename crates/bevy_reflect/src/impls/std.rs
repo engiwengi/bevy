@@ -11,6 +11,7 @@ use std::{
     borrow::Cow,
     hash::{Hash, Hasher},
     ops::Range,
+    time::Duration,
 };
 
 impl_reflect_value!(bool(Hash, PartialEq, Serialize, Deserialize));
@@ -29,6 +30,7 @@ impl_reflect_value!(isize(Hash, PartialEq, Serialize, Deserialize));
 impl_reflect_value!(f32(Serialize, Deserialize));
 impl_reflect_value!(f64(Serialize, Deserialize));
 impl_reflect_value!(String(Hash, PartialEq, Serialize, Deserialize));
+impl_reflect_value!(Duration(Hash, PartialEq, Serialize, Deserialize));
 impl_reflect_value!(Option<T: Serialize + Clone + for<'de> Deserialize<'de> + Reflect + 'static>(Serialize, Deserialize));
 impl_reflect_value!(HashSet<T: Serialize + Hash + Eq + Clone + for<'de> Deserialize<'de> + Send + Sync + 'static>(Serialize, Deserialize));
 impl_reflect_value!(Range<T: Serialize + Clone + for<'de> Deserialize<'de> + Send + Sync + 'static>(Serialize, Deserialize));
